@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container my-3">
+        <form action="/" method="POST">
+            <h2>Add New Employee</h2>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Full Name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Id</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+            </div>
+            <div class="mb-3">
+                <label for="department" class="form-label">Department</label>
+                <input type="text" class="form-control" id="department" name="department"
+                    placeholder="Enter Department">
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="container my-3">
+        <h2>All Employees</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Join Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in allemployee %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.department}}</td>
+                    <td>{{i.contact}}</td>
+                    <td>{{i.joined_date}}</td>
+                    <td>
+                        <a href="/update/{{i.sno}}" class="btn btn-dark btn-sm" role="button">Update</a>
+                        <a href="/delete/{{i.sno}}" class="btn btn-dark btn-sm" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
