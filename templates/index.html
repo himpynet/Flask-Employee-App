@@ -27,8 +27,9 @@
 
     <div class="container my-3">
         <h2>All Employees</h2>
-        <table class="table">
-            <thead>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">S.No</th>
                     <th scope="col">Name</th>
@@ -49,8 +50,8 @@
                     <td>{{i.contact}}</td>
                     <td>{{i.joined_date}}</td>
                     <td>
-                        <a href="/update/{{i.sno}}" class="btn btn-dark btn-sm" role="button">Update</a>
-                        <a href="/delete/{{i.sno}}" class="btn btn-dark btn-sm" role="button">Delete</a>
+                        <a href="/update/{{i.sno}}" class="btn btn-sm btn-dark me-2 mb-2" role="button">Update</a>
+                        <a href="/delete/{{i.sno}}" class="btn btn-sm btn-dark me-2 mb-2" role="button">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -58,5 +59,6 @@
 
             </tbody>
         </table>
+        </div>
     </div>
 {% endblock body %}
