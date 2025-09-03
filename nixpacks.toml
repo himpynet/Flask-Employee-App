@@ -1,0 +1,2 @@
+[start]
+cmd = "gunicor app:app"
